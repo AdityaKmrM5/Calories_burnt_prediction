@@ -1,11 +1,13 @@
 import streamlit as st
-import pickle
 import numpy as np
+import pickle
+from xgboost import XGBRegressor  
 
-# Load model (use relative path for deployment)
+
+
 model = pickle.load(open("model.pkl", "rb"))
 
-# Display image
+
 st.image(
     "oip.png",
     caption="Stay Healthy!",
@@ -15,7 +17,7 @@ st.image(
 st.title("Calorie Burnt Prediction App")
 st.subheader("Created by Aditya")
 
-# Inputs
+
 gender = st.selectbox("Gender", ["Male", "Female"])
 age = st.number_input("Age", 10, 80)
 height = st.number_input("Height (cm)")
